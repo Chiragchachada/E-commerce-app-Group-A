@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Newsreader:wght@300&display=swap');
+
+
+body{
+    margin: auto;
+}
+
+/* .main{
+    background-image: url("https://res.cloudinary.com/dcqew2kqy/image/upload/v1637753504/logistics-truck-container-plane-shipping-supply_yln0lx.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+} */
+
+.central-content{
+    font-family: 'Frijole', cursive;
+}
+
+.button-section{
+    background: linear-gradient(45deg, #4199fe, #74b4fe);
+
+}
+.button-section:hover {
+    display: block;
+    text-decoration: none;
+
+        background: #2581DC;
+        color: #ffffff;
+   }
+
+
+
+
+    
+
+
+
+

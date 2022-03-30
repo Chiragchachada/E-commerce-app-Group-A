@@ -28,11 +28,18 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.card{
+  width: 18rem;
 }
+
+.button-section{
+  background: linear-gradient(45deg, #4199fe, #74b4fe);
+
+}
+.button-section:hover {
+  display: block;
+  text-decoration: none;
+
+      background: #2581DC;
+      color: #ffffff;
+ }
