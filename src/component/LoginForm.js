@@ -13,11 +13,11 @@ export default  function LoginForm(){
 
     const dispatch = useDispatch();
     const user = useSelector((state) => {
-      console.log(state)
+      // console.log(state)
         return state.au.auth
       });
   
-      console.log(user);
+      // console.log(user);
       if(user.auth){
         navigate('/products')
        }

@@ -8,15 +8,19 @@ export default function Cart(){
         console.log(state)
           return state.cr.cart
         })
-    
+        const auth = (state) => {
+          return state.au.auth}
+          const user = useSelector(auth)
+          const id = user.userId
+          
         const dispatch = useDispatch();
           // const category = "mobile"
         useEffect(() => {
             console.log('Init ... View Products .... ');
-            dispatch(fetchCart())
-          }, [dispatch])
+            dispatch(fetchCart({id:id}))
+          }, [cart])
       
-        const mapCart= cart.map((item, index)=>{return <div className="h-64 mt-4 grid grid-rows-3 grid-flow-col gap-4" key={index}>    
+        const mapCart= cart.map((item, index)=>{return <div className="h-64  mt-4 grid grid-rows-3 grid-flow-col gap-4" key={index}>    
         <div className="flex flex-row justify-between border-gray-400 shadow-lg h-52 mx-16">
         <div className="h-44 w-44 bg-gray-300 mt-4 ml-4">
         <img className="h-40 w-40 mt-2" src={item.image} alt="image"/>    
@@ -37,7 +41,7 @@ export default function Cart(){
         </div>
         })  
     return(
-        <div>
+        <div className='mb-40'>
       <div className="text-2xl flex justify-center bg-gradient-to-r from-blue-600 via-blue-200 to-blue-600 p-2 m-4 font-bold">You have Added</div>
        <div className="  ">
           {mapCart}

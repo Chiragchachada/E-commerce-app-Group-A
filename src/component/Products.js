@@ -9,12 +9,12 @@ import { addtoCart } from "../store/cart-reducer"
 export default function Products(props){
 
   const products = useSelector((state) => {
-    console.log(state)
+    // console.log(state)
       return state.pr.products
     })
 
     const user = useSelector((state) => {
-      console.log(state)
+      // console.log(state)
         return state.au.auth
       })
 
@@ -25,10 +25,11 @@ export default function Products(props){
       console.log('Init ... View Products .... ');
       dispatch(fetchProducts())
     }, [dispatch])
-      
-    const addToCart=(item, email)=>{
-      dispatch(addtoCart(item))
-      alert("Product Added to Cart")
+    // console.log("userrrr", user.userId);
+      const userid = user.userId
+
+    const addToCart=(item, userid)=>{
+      dispatch(addtoCart(item,userid))
     }
 
      const card = products.map((item, index)=>{  return(<div className="p-4 m-4" >
@@ -44,9 +45,8 @@ export default function Products(props){
       </div>
       <div className="text-white flex justify-center text-semibold">
       {user.auth && <div class="button-section border-4 p-2 mt-2">
-                    <button class="button text-xl font-black font-bold	" onClick={()=>addToCart(item._id)}>Add to Cart</button>
+                    <button class="button text-xl font-black font-bold	" onClick={()=>addToCart(item, userid)}>Add to Cart</button>
                 </div>}
-      {/* {props.isLoggedIn && <button className="button font-bold  item-center bg-blue-500  text-xl m-4 py-2 px-4" onClick={()=>dispatch(addToCart(item))}>Add to Cart</button>} */}
 
       </div>
     </div>

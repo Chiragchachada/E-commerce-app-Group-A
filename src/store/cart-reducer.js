@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import globalFetch from '../Addon/globalfetch';
+import globalFetch from '../Addons/globalfetch';
 
 
 const cartReducer = createSlice({
@@ -8,7 +8,7 @@ const cartReducer = createSlice({
   ]},
   reducers: {
     FETCH_CART(state, action){
-      return {cart : action.payload};
+      return {cart : action.payload.data};
     },
     ADD_TO_CART(state, action){
       let newCart = [...state.cart, action.payload]
@@ -38,10 +38,24 @@ const baseUrl = 'http://localhost:5000/cart/'
 //   }
 // }
 
-export const fetchCart = () => {
+
+
+export const fetchCart = (id) => {
   return async(dispatch) => {
-      let response = await fetch(baseUrl);
+      //  console.log("id of user", id);
+
+      let response = await fetch(baseUrl +'user', {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json'
+        },
+        body: JSON.stringify(id)
+      });
       let data = await response.json();
+      // console.log("res data",data);
+
+      
+
       dispatch(FETCH_CART(data));
 
   }
@@ -50,19 +64,27 @@ export const fetchCart = () => {
 
 
 
-export const addtoCart = (product) => {
+
+export const addtoCart = (product, userid) => {
   return async(dispatch) => {
-     
-      let response = await fetch(baseUrl, {
+    //  console.log("userid", userid);
+      let response = await fetch(baseUrl + "create", {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
           },
-          body: JSON.stringify({product:product})
+          body: JSON.stringify({title:product.title,
+          category:product.category,
+        price:product.price,
+      image:product.image,
+      user:userid
+    })
       });
       let data = await response.json();
       console.log(data);
       dispatch(ADD_TO_CART(product));
+      alert("Product Added to Cart")
+
 
   }
 }

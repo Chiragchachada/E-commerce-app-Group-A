@@ -21,7 +21,7 @@ const authReducer = createSlice({
   export default authReducer.reducer
 
 
-  const baseUrl = 'http://localhost:5000/auth/'
+  const baseUrl = 'http://localhost:5000/user/'
 
 
 
@@ -36,7 +36,7 @@ const authReducer = createSlice({
           body: JSON.stringify(user)
         });
         let data = await response.json();
-        console.log(data);
+        // console.log(data);
 
         if(data.token){
           localStorage.setItem('token', data.token)
@@ -61,7 +61,10 @@ export const singup = (user) => {
             body: JSON.stringify(user)
         });
         let data = await response.json();
-        console.log(data);
+        if(data.token){
+          localStorage.setItem('token', data.token)
+        }
+        // console.log(data);
         dispatch(SIGN_UP(data));
   
     }

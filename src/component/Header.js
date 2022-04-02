@@ -7,7 +7,7 @@ import { fetchCart } from "../store/cart-reducer";
 import { logout } from "../store/auth.reducer";
 
 const auth = (state) => {
-  console.log("dd", state.au.auth);
+  // console.log("dd", state.au.auth);
   return state.au.auth}
 
 export default function Header(props){
@@ -16,16 +16,15 @@ export default function Header(props){
   const dispatch = useDispatch();
   
   
-console.log("ss", user);
   const cart = useSelector((state) => {
-    console.log(state)
+    // console.log(state)
       return state.cr.cart
     })
 
-    useEffect(() => {
-      console.log('Init ... View Products .... ');
-      dispatch(fetchCart())
-    }, [dispatch])
+    // useEffect(() => {
+    //   console.log('Init ... View Products .... ');
+    //   dispatch(fetchCart())
+    // }, [dispatch])
  
 
    
@@ -59,8 +58,8 @@ console.log("ss", user);
          {!user.auth && <Link className="login-link" to="/login">Sign In</Link>}
         </li>
         <li onClick={()=>dispatch(logout())}>{user.auth &&<Link to="">Log out</Link>}</li>
-        <li class="text-3xl">{user.auth && <Link to="/profile"><div><i class="   fas fa-user-circle" ></i></div></Link>}</li>
-        <li class="text-3xl">{user.auth && <Link to="/cart"><span class="material-icons">shopping_cart </span><span className="text-xl">{cart.length}</span></Link>}</li>
+        <li class="text-3xl">{user.auth && <Link to="/profile"><div><i class="   fas fa-user-circle" ></i><span className="text-xl">{user.user}</span></div></Link>}</li>
+        <li class="text-3xl">{user.auth && <Link to="/cart"><span class="material-icons">shopping_cart </span><span className="text-2xl">{cart.length}</span></Link>}</li>
 
       </ul>
       

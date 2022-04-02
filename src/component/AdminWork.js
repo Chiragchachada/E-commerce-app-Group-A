@@ -15,18 +15,18 @@ export default function AdminWork() {
       useEffect(() => {
         console.log('Init ... View Products .... ');
         dispatch(fetchProducts())
-      }, [dispatch])
+      }, [products])
         
 
     const [title, setTitle]=useState("")
-    const [price, setPrice]=useState("")
+    const [price, setPrice]=useState()
     const [image, setImage]=useState("")
 
     const [category, setcategory]=useState("")
 
 
     return (
-    <div className='flex flex-col justify-center'>
+    <div className='flex flex-col mb-40 pb-20 justify-center'>
 
         
             <h4>Add Product</h4>
@@ -55,7 +55,7 @@ export default function AdminWork() {
                  <br/>
                  <input
                   id="name"
-                  type="file"
+                  type="input"
                   value={image}
                   onChange={(e)=>setImage(e.target.value)}
                   required

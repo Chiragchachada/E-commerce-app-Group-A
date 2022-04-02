@@ -1,6 +1,6 @@
 
 import {createSlice} from '@reduxjs/toolkit'
-import globalFetch from '../Addon/globalfetch';
+import globalFetch from '../Addons/globalfetch';
 
 
 const productReducer = createSlice({
@@ -9,7 +9,7 @@ const productReducer = createSlice({
   ]},
   reducers: {
     FETCH_PRODUCTS(state, action){
-      return {products : action.payload};
+      return {products : action.payload.data};
     },
     ADD_PRODUCT(state, action){
       let newProducts = [...state.products, action.payload]
@@ -36,6 +36,7 @@ export const addProduct = (product) => {
            );
         let data = await response.json();
         console.log(data);
+        // dispatch(fetchProducts())
         dispatch(ADD_PRODUCT(product));
 
     }
@@ -44,7 +45,7 @@ export const addProduct = (product) => {
 
 export const fetchProducts = () => {
   return async(dispatch) => {
-      let response = await globalFetch(baseUrl);
+      let response = await fetch(baseUrl);
       let data = await response.json();
       dispatch(FETCH_PRODUCTS(data));
 
@@ -53,17 +54,31 @@ export const fetchProducts = () => {
 
 
 
+
+
 export const deleteProduct = (id) => {
-  // http communication
-  console.log(id);
-  return dispatch=> {
-      globalFetch(baseUrl +id, "DELETE",id
-      )
-        .then(response => response.json()) 
-        .then(json => {
-            dispatch(DELETE_PRODUCT({id}));
+    // http communication
+    console.log(id);
+    return async dispatch=> {
+      let response= await fetch(baseUrl +id, {
+          method:"DELETE"
         })
-        .catch(err => console.log(err));
+        let data = await response.json
+        console.log("r",data);
+        dispatch(DELETE_PRODUCT({id}));
+
+          
+    }
   }
-  // return {type: DELETE_EMPLOYEE, payload: {id}} 
-}
+
+  // export const deleteProduct = (id) => {
+  //   // http communication
+  //   console.log(id);
+  //   return async dispatch=> {
+  //     let response= await globalFetch(baseUrl +id, "DELETE", id)
+  //       let data = await response.json
+  //       dispatch(DELETE_PRODUCT({id}));
+
+          
+  //   }
+  // }

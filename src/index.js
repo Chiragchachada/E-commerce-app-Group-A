@@ -35,7 +35,7 @@ const composedEnhancer = composeWithDevTools(
 
   // store with reducer
 // Create a Store - state container
-const store = createStore(combineReducers({pr:productsReducer, cr: cartReducer,au:authReducer}), composedEnhancer)
+const store = createStore(combineReducers({pr:productsReducer,cr:cartReducer,au:authReducer}), composedEnhancer)
 // const store = createStore(productsReducer, composedEnhancer)
 
 ReactDOM.render(
