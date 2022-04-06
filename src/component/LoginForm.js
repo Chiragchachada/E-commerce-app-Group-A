@@ -7,23 +7,19 @@ import { login } from '../store/auth.reducer';
 export default  function LoginForm(){
 
     const [emailId, updateEmailId] = useState("");
-  const [password, updatePassword] = useState("");
+    const [password, updatePassword] = useState("");
 
     let navigate = useNavigate();
 
     const dispatch = useDispatch();
     const user = useSelector((state) => {
-      // console.log(state)
+      console.log(state)
         return state.au.auth
       });
   
       // console.log(user);
-      if(user.auth){
-        navigate('/products')
-       }
-       else{
-           console.log('Display error message!');
-       }
+     
+
   
 
     //Function to navigate to registration form
@@ -36,6 +32,12 @@ export default  function LoginForm(){
         e.preventDefault();
         dispatch(login({email:emailId, password:password}))
         // navigate('/products')
+        if(user.auth ===true){
+          navigate('/products')
+         }
+         else{
+             console.log('Display error message!');
+         }
         
       }
     
@@ -75,7 +77,6 @@ export default  function LoginForm(){
                   placeholder="Email address"
                 />
               </div>
-
               <br/>
 
               <div>
@@ -97,6 +98,11 @@ export default  function LoginForm(){
             </div>
 
             <br/>
+            <div className="text-red-500 font-bold">{user.err}</div>
+            <div className="text-red-500 font-bold">{user.usererr}</div>
+
+            <br/>
+
 
             <div>
               <button

@@ -9,7 +9,7 @@ export default function Homepage(){
 
     }
     return(
-        <div className="main justify-center  ">
+        <div className="main justify-center mb-20 ">
               <div class="section-content flex  ">
 
 
@@ -23,8 +23,9 @@ export default function Homepage(){
             </div>
 
 
-            <div class="w-1/2 flex justify-center m-8 ">
-             <img  src="https://res.cloudinary.com/dcqew2kqy/image/upload/v1647325584/letter-initial-e-shopping-bag-for-online-digital-retail-e-commerce-shop-store-market-supermarket-company-brand-mobile-app-simple-creative-flat-logo-2G41XFC_cnofab.jpg" alt="group-chat" class=" m-4 h-2/3 mt-20" />
+            <div class=" flex flex-col justify-center m-8 ">
+             <img  src="https://img.freepik.com/free-vector/online-shopping-concept-landing-page_52683-22153.jpg?t=st=1648990416~exp=1648991016~hmac=9f4b7726e27b3147d800b6e2b4affde644cd13a73071df1cdf0d28588a6d471c&w=740" alt="group-chat" class=" m-4  mt-0" />
+             <a href="https://www.freepik.com/vectors/business">Business vector created by pikisuperstar - www.freepik.com</a>
             </div>
 
            

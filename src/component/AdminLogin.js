@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { login } from "../store/auth.reducer";
+import { adminLogin } from "../store/auth.reducer";
 
 //Login form Component
 export default function LoginForm() {
@@ -9,20 +9,28 @@ export default function LoginForm() {
   const [emailId, updateEmailId] = useState("");
   const [password, updatePassword] = useState("");
 
+  const user = useSelector((state) => {
+    console.log(state)
+      return state.au.auth
+    });
 
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
-
+  if(user.auth){
+    navigate('/adminwork')
+   }
+   else{
+       console.log('Display error message!');
+   }
 
   //Function to navigate to registration form
 
 
   async function loginAdmin(e) {
     e.preventDefault()
-    dispatch(login({ email: emailId, password: password }))
-     navigate('/adminwork')
-
+    dispatch(adminLogin({ email: emailId, password: password }))
+   
   }
 
   return (
@@ -32,7 +40,7 @@ export default function LoginForm() {
 
 
     <div className=" flex   justify-center  via-red-500 to-pink-500 py-16 pb-40 ">
-      <div className="  border-2 p-8 rounded-xl bg-gray-300 space-y-8">
+      <div className="  border-2 p-8 rounded-xl w-80 bg-gray-300 space-y-8">
 
         <div>
 
@@ -82,6 +90,12 @@ export default function LoginForm() {
           </div>
 
           <br />
+          <div className="text-red-500 font-bold">{user.err}</div>
+          <div className="text-red-500 font-bold">{user.adminerr}</div>
+
+          <br/>
+
+
 
           <div>
             <button

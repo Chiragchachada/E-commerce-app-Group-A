@@ -15,7 +15,7 @@ export default function AdminWork() {
       useEffect(() => {
         console.log('Init ... View Products .... ');
         dispatch(fetchProducts())
-      }, [products])
+      }, [])
         
 
     const [title, setTitle]=useState("")
@@ -24,12 +24,20 @@ export default function AdminWork() {
 
     const [category, setcategory]=useState("")
 
+    const addprod =()=>{
+      dispatch(addProduct({ title, category, image, price })) 
+      setTitle('')
+      setPrice(0)
+      setImage('')
+      setcategory('')
+    }
+
 
     return (
     <div className='flex flex-col mb-40 pb-20 justify-center'>
 
         
-            <h4>Add Product</h4>
+            <h4 className='mt-2 text-xl font-bold'>Add Product</h4>
 
         <div className='flex mt-4 justify-center'>
         <div className='w-80'>
@@ -72,7 +80,7 @@ export default function AdminWork() {
                   placeholder="Enter Product Price"
                 />
                  <div class="button-section border-4 rounded-3xl w-40 p-2   mt-4">
-                    <button class="button text-xl font-black font-bold	" onClick={()=>dispatch(addProduct({ title, category, image, price }))}>Add</button>
+                    <button class="button text-xl font-black font-bold	" onClick={()=>addprod({ title, category, image, price })}>Add</button>
                 </div>
               </div>
             

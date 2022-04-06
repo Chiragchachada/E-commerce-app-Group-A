@@ -1,5 +1,6 @@
 async function globalFetch(baseUrl, method, body){
     let token = localStorage.getItem("token");
+    console.log("global", body)
     if(token !== null){
         token = "Bearer " + token;
         let res = await fetch(baseUrl,{
@@ -13,6 +14,6 @@ async function globalFetch(baseUrl, method, body){
         return res;
     }
     
-}
+} 
 
 export default globalFetch;

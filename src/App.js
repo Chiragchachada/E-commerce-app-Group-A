@@ -14,6 +14,7 @@ import Cart from "./component/Cart";
 import AdminWork from "./component/AdminWork";
 import Profile from "./component/Profile";
 import {useSelector } from "react-redux";
+import Loginregis from "./component/Login";
 
 
 function App() {
@@ -33,13 +34,16 @@ function App() {
       <Route exact path="/" element={<Homepage/>}/>
       <Route exact path="/products" element={<Products/>}/>
       <Route exact path="/adminwork" element={<AdminWork/>}/>
+      <Route exact path ="/admin" element={<AdminLogin/>}/>
+
 
 
         <Route element={<LoginRestriction />}>
-        <Route exact path ="/admin" element={<AdminLogin/>}/>
 
         <Route exact path="/register" element={<RegistrationForm/>}/>
-        <Route exact path="/login" element={<LoginForm/>}/>
+        {/* <Route exact path="/login" element={<LoginForm/>}/> */}
+        <Route exact path="/login" element={<Loginregis/>}/>
+
 
        
        </Route>

@@ -76,3 +76,30 @@ export const singup = (user) => {
       dispatch(LOGOUT())
     }
   }
+
+
+
+
+
+  export const adminLogin = (user) => {
+    return async(dispatch) => {
+       
+        let response = await fetch(baseUrl + 'adminlogin', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        });
+        let data = await response.json();
+        console.log(data);
+
+        if(data.token){
+          localStorage.setItem('token', data.token)
+        }
+        // set token to local storage
+
+        dispatch(LOGIN(data));
+
+    }
+}

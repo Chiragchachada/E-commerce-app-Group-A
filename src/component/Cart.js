@@ -18,7 +18,7 @@ export default function Cart(){
         useEffect(() => {
             console.log('Init ... View Products .... ');
             dispatch(fetchCart({id:id}))
-          }, [cart])
+          }, [])
       
         const mapCart= cart.map((item, index)=>{return <div className="h-64  mt-4 grid grid-rows-3 grid-flow-col gap-4" key={index}>    
         <div className="flex flex-row justify-between border-gray-400 shadow-lg h-52 mx-16">

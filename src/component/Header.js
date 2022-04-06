@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import "../component/Header.css"
 import {useNavigate} from "react-router-dom";
 import  {Link} from "react-router-dom";
@@ -9,9 +9,10 @@ import { logout } from "../store/auth.reducer";
 const auth = (state) => {
   // console.log("dd", state.au.auth);
   return state.au.auth}
+ 
+
 
 export default function Header(props){
-  let navigate = useNavigate();
   const user = useSelector(auth)
   const dispatch = useDispatch();
   
@@ -21,10 +22,10 @@ export default function Header(props){
       return state.cr.cart
     })
 
-    // useEffect(() => {
-    //   console.log('Init ... View Products .... ');
-    //   dispatch(fetchCart())
-    // }, [dispatch])
+    useEffect(() => {
+      console.log('Init ... View Products .... ');
+      dispatch(fetchCart())
+    }, [dispatch])
  
 
    

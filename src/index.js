@@ -11,6 +11,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import { BrowserRouter } from "react-router-dom";
 import cartReducer from './store/cart-reducer';
 import authReducer from './store/auth.reducer';
+import 'bootstrap/dist/css/bootstrap.css';
+
 
 
 const datetime = store => next => action => {

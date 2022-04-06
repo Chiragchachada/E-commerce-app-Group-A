@@ -36,7 +36,7 @@ export const addProduct = (product) => {
            );
         let data = await response.json();
         console.log(data);
-        // dispatch(fetchProducts())
+        dispatch(fetchProducts())
         dispatch(ADD_PRODUCT(product));
 
     }
@@ -56,29 +56,33 @@ export const fetchProducts = () => {
 
 
 
-export const deleteProduct = (id) => {
+// export const deleteProduct = (id) => {
+//     // http communication
+//     console.log(id);
+//     return async dispatch=> {
+//       let response= await fetch(baseUrl +id, {
+//           method:"DELETE"
+//         })
+//         let data = await response.json
+//         console.log("r",data);
+//         dispatch(DELETE_PRODUCT({id}));
+
+          
+//     }
+//   }
+
+  export const deleteProduct = (id) => {
     // http communication
     console.log(id);
     return async dispatch=> {
-      let response= await fetch(baseUrl +id, {
-          method:"DELETE"
-        })
+      let response= await globalFetch(baseUrl +id, "DELETE")
+        console.log("delete res", response);
         let data = await response.json
-        console.log("r",data);
+        console.log("delete data", data);
+
+        dispatch(fetchProducts())
         dispatch(DELETE_PRODUCT({id}));
 
           
     }
   }
-
-  // export const deleteProduct = (id) => {
-  //   // http communication
-  //   console.log(id);
-  //   return async dispatch=> {
-  //     let response= await globalFetch(baseUrl +id, "DELETE", id)
-  //       let data = await response.json
-  //       dispatch(DELETE_PRODUCT({id}));
-
-          
-  //   }
-  // }

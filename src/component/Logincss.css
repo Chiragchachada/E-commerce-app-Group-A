@@ -1,0 +1,59 @@
+.nodiv {
+  background-image: url(https://images.unsplash.com/photo-1612171709933-024a90133e42?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=869&q=80);
+  background-position: center;
+    background-size: cover;
+padding-top: 100px;
+padding-bottom: 120px;
+
+}
+
+.myleftctn{
+  background: #fff;
+  border-radius: 25px;
+  height: 340px;
+  padding: 25px;
+  padding-left: 50px;
+}
+.myleftctn_header{
+  color: blueviolet;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+.myinput{
+  width: 230px;
+  border-radius: 25px;
+  padding: 10px;
+  padding-left: 20px;
+  border: none;
+  box-shadow: 0px 10px 49px -14px rgba(0, 0, 0, 0.7);
+}
+.myinput:focus{
+  outline: none;
+}
+.butt{
+  background: linear-gradient(45deg, #bb36fd, #9b00e8);
+  color: #fff;
+  width: 230px;
+  border: none;
+  border-radius: 25px;
+  padding: 8px;
+  box-shadow: 0px 10px 41px -11px rgba(0, 0, 0, 0.7);
+}
+.butt:hover{
+  background: linear-gradient(45deg, #c85bff, #b726ff);
+}
+
+/* Light-side */
+
+.myrightctn{
+  background: #fff;
+  border-radius: 25px;
+  padding: 25px; 
+}
+.myrightctn_header{
+  color: blueviolet;
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: -9px;
+}
