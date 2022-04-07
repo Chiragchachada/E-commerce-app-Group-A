@@ -33,7 +33,7 @@ export default function Footer(){
       <li class="menu__item"><a class="menu__link" href="#">Contact</a></li>
 
     </ul>
-    <p>&copy;2021 Board Express | All Rights Reserved</p>
+    <p>&copy;2022 E-Commerce | All Rights Reserved</p>
   </footer>
         </div>
     )
